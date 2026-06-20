@@ -1,5 +1,224 @@
 <!doctype html>
-<title>hello-world</title>
-<h1>hello-world</h1>
-<p>Scaffolded by deploymill. Replace this page with your app.</p>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hello World</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0f172a;
+      --card: rgba(15, 23, 42, 0.72);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --line: rgba(255, 255, 255, 0.16);
+      --accent: #38bdf8;
+      --accent-2: #a78bfa;
+      --accent-3: #34d399;
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.28), transparent 32rem),
+        radial-gradient(circle at 85% 20%, rgba(167, 139, 250, 0.26), transparent 30rem),
+        radial-gradient(circle at 50% 90%, rgba(52, 211, 153, 0.18), transparent 28rem),
+        linear-gradient(135deg, #020617 0%, #0f172a 55%, #111827 100%);
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+      overflow-x: hidden;
+    }
+
+    .shell {
+      width: min(960px, 100%);
+      position: relative;
+    }
+
+    .glow {
+      position: absolute;
+      inset: -4rem;
+      background: conic-gradient(from 180deg, rgba(56, 189, 248, 0.2), rgba(167, 139, 250, 0.2), rgba(52, 211, 153, 0.18), rgba(56, 189, 248, 0.2));
+      filter: blur(80px);
+      opacity: 0.45;
+      z-index: -1;
+    }
+
+    main {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05)), var(--card);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+      backdrop-filter: blur(22px);
+      border-radius: 32px;
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: clamp(2rem, 7vw, 5.5rem);
+      display: grid;
+      gap: 2rem;
+    }
+
+    .badge {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.55rem 0.85rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 0.9rem;
+    }
+
+    .dot {
+      width: 0.65rem;
+      height: 0.65rem;
+      border-radius: 999px;
+      background: var(--accent-3);
+      box-shadow: 0 0 24px var(--accent-3);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.5rem, 13vw, 8.5rem);
+      line-height: 0.9;
+      letter-spacing: -0.08em;
+    }
+
+    h1 span {
+      display: block;
+      background: linear-gradient(90deg, #f8fafc, #bae6fd 36%, #ddd6fe 72%, #bbf7d0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    p {
+      max-width: 620px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      line-height: 1.7;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.25rem;
+      padding: 0 1.25rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-weight: 700;
+      color: #020617;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      box-shadow: 0 14px 34px rgba(56, 189, 248, 0.25);
+    }
+
+    .button.secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--line);
+      box-shadow: none;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      background: rgba(2, 6, 23, 0.3);
+    }
+
+    .stat {
+      padding: 1.35rem clamp(1rem, 4vw, 2rem);
+      border-right: 1px solid var(--line);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.05rem;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 1rem;
+      }
+
+      main {
+        border-radius: 24px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stat:last-child {
+        border-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="glow" aria-hidden="true"></div>
+    <main>
+      <section class="hero" aria-labelledby="headline">
+        <div class="badge"><span class="dot" aria-hidden="true"></span>Live on Deploy Mill</div>
+        <h1 id="headline"><span>Hello</span><span>World.</span></h1>
+        <p>A small static page with a cleaner design, soft gradients, glass styling, and a responsive layout.</p>
+        <div class="actions">
+          <a class="button" href="#details">View details</a>
+          <a class="button secondary" href="https://github.com/DeployMill/ryande_hello-world">Open repo</a>
+        </div>
+      </section>
+      <section class="stats" id="details" aria-label="Page details">
+        <div class="stat">
+          <strong>Static</strong>
+          <span>Fast, simple HTML and CSS</span>
+        </div>
+        <div class="stat">
+          <strong>Responsive</strong>
+          <span>Looks good on desktop and mobile</span>
+        </div>
+        <div class="stat">
+          <strong>Deployed</strong>
+          <span>Running on Deploy Mill</span>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
