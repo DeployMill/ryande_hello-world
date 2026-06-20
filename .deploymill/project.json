@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "name": "hello-world",
+  "workload": "web",
+  "port": 8080,
+  "domains": {
+    "prod": "hello-world-ryande.deploymill.app"
+  },
+  "mounts": [],
+  "rollback": false,
+  "health": {
+    "path": "/healthz",
+    "retries": 3,
+    "intervalMs": 3000,
+    "timeoutMs": 5000
+  },
+  "source": {
+    "provider": "github",
+    "connection": "acdc572d-4639-4a72-adbf-899a3379d1ac"
+  }
+}
